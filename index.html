@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Intro a AngularJS</title>
+	<link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="bower_components/reveal.js/css/theme/night.css">
+    <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
+    <style>
+    	img.ang-logo.med{
+	        max-width: 50%;
+    		max-height: 50%;
+    	}
+    	img.ang-logo.xs{
+			max-width: 7%;
+    		max-height: 7%;
+    	}
+    	.relative{
+    		position: relative;
+    	}
+    	.top-15{
+    		top: 15px;
+    	}
+    	.reveal section img.normal-pic{
+    		margin: 0px;
+    		background: transparent;
+    		border: none;
+    		box-shadow: none;	
+    	}
+    	img.block-img{
+    		display: block;
+    	}
+    	img.block-img.centered{
+    		margin: 0 auto !important;
+    	}
+    	.eee-bk{
+    		background: #eee !important;
+    	}
+    	.reveal .img-on-title{
+			max-width: 30%;
+			position: relative;
+    	}
+    	.reveal .img-on-title.ember{
+    		max-width: 20%;
+    	}
+ 		.reveal .img-on-title.vs-icon{
+		    max-height: 10%;
+    		max-width: 10%;
+    		top: -100px;
+ 		}
+ 		.vs-title:before{
+ 			content: "";
+ 			display: block;
+ 			width: 90px;
+ 			height: 90px;
+ 			background: url(imgs/vs-icon.png) no-repeat;
+ 			background-size: cover;
+ 			position: absolute;
+ 			left: -15px;
+ 			top: 10px;
+ 		}
+ 		.snoop{
+ 			max-width: 10% !important;
+ 		}
+    </style>
+</head>
+<body>
+	<div class="reveal">
+        <div class="slides">
+            <section>
+		        <h1>Angular JS</h1>
+            	<img class="ang-logo med normal-pic block-img centered" src="imgs/AngularJS-Shield-large.png" alt="AngularJS Logo">
+            	<small>por Luis Fletes</small>
+            </section>
+            <section>
+            	<section>
+            		<h2>Sobre Mi</h2>
+            	</section>
+            	<section>NodeJS, Angular, JQuery, VainillaJS, MongoDB</section>
+            	<section>Javascript Lover</section>
+            	<section>Exp en Angular: Aprox. 1.5 años</section>
+            </section>
+            <section>
+            	<section>
+            		<h2>Sobre el curso</h2>
+            	</section>
+            	<section>
+        			<h3>Temas</h3>
+        			<ol>
+        				<li class="fragment">Introduccion</li>
+        				<li class="fragment">Modulos y Controladores</li>
+        				<li class="fragment">Filtros, Directivas y Fabricas</li>
+        				<li class="fragment">Ruteo y Manejo de Vistas</li>
+        				<li class="fragment">Formularios y $http</li>
+        				<li class="fragment">Unit Testing</li>
+        			</ol>
+        		</section>
+            </section>
+            <section>
+            	<section>
+            		<h2>Requisitos</h2>
+            	</section>
+            	<section>
+            		Conocimientos Basicos/Intermedios en Javascript
+            	</section>
+            	<section>
+            		Conocimientos en HTML y CSS
+            	</section>
+            	<section>
+            		Conocimientos o Nociones en MV* o MVW (Model - View - Whatever)
+            		<p><small>(Osea MVC, MVVM o MVP)</small></p>
+            	</section>
+            	<section>
+            		Autoestudio
+            	</section>
+            	<section>
+            		Ganas de Aprender
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h2>¿Qué es <img class="ang-logo xs normal-pic relative top-15" src="imgs/AngularJS-Shield-large.png" alt="Angular">?</h2>
+            	</section>
+				<section>
+					Javascript Front-End Framework para Desarrollo de SPA's <small>(Single Page Applications)</small>
+				</section>
+				<section>
+					Es Open Source
+					<img src="imgs/snoop.gif" class="normal-pic block-img centered snoop" alt="OpenSourceYeah!">
+				</section>
+				<section>Desarrollado y Mantenido por, <em>nada mas y nada menos que,</em> <strong>Google</strong></section>
+				<section>
+					<p>Es la <strong><em>"A"</em></strong> del <strong>MEAN</strong> Stack</p>
+					<small><strong>M</strong>ongoDB, <strong>E</strong>xpress.js, <strong>A</strong>ngularJS, <strong>N</strong>odeJS</small>
+				</section>
+				<section>HTML y JS... Con esteroides</section>
+				<section>Lo Mejor que le ha pasado al JS <small>(En mi opinión)</small></section>
+            </section>
+            <section>
+            	<section><h2>Competencias</h2></section>
+            	<section>
+            		<ul>
+            			<li class="fragment">Backbone</li>
+            			<li class="fragment">Ember</li>
+            			<li class="fragment">todomvc</li>
+            			<li class="fragment">Knockout</li>
+            			<li class="fragment">Polymer?</li>
+            			<li class="fragment">React?</li>
+            			<li class="fragment">Aurelia? (Antes Durandal)</li>
+            			<li class="fragment">Spine</li>
+            		</ul>
+            		<p>Fuente: <a href="https://github.com/showcases/front-end-javascript-frameworks" target="blank">Github</a></p>
+            	</section>
+            	<section>
+            		<img src="imgs/jstrends.png" alt="JS Trends">
+            	</section>
+            	<section>
+            		<img src="imgs/jstables.png" class="eee-bk" alt="Tabla Comparativa">
+            	</section>
+            	<section>
+            		<img src="imgs/jsfws.png" class="eee-bk" alt="Conjuntos Comparativa">
+            	</section>
+            	<section>
+            		<h3 class="vs-title">
+            			<!-- hacer que gire -->
+            			<!-- <img src="imgs/vs-icon.png" class="img-on-title normal-pic vs-icon relative" alt="VS">  -->
+            			<img src="imgs/JQuery.png" class="img-on-title normal-pic" alt="JQuery">
+            		</h3>
+            		<p>jQuery es una <em>librería</em> para Manipulación del DOM, Animaciones y Llamados AJAX. <strong>NO</strong> es un Framework de Aplicaciones</p>
+            		<p>
+            			<strong>Pros</strong> <br>
+            			Angular hace todo lo que puede hacer JQuery (AJAX, Animaciones), sin embargo, JQuery es superior en cuanto a manipulación de DOM (En términos de simplicidad, no rendimiento)
+            		</p>
+            		<p>
+            			<strong>Contras</strong> <br>
+            			<ul>
+            				<li>No es tan buena opcion para crear vistas dinámicas</li>
+            				<li>No es Organizado</li>
+            				<li>No es MVVM ni MVP ni MVC</li>
+            			</ul>
+            		</p>
+            	</section>
+            	<section>
+            		<h3 class="vs-title">
+            			<!-- hacer que gire el VS-->
+            			<img src="imgs/backbone.png" class="img-on-title normal-pic" alt="Backbone">
+            		</h3>
+            		<p>Provee estructura para aplicaciones web. Modelos, Vistas, Plantillas, Ruteo e interacciones RESTfull</p>
+            		<p>
+            			<strong>Pros</strong> <br>
+            			<em>Mayor</em> (en existencia), y por ende, mas "maduro".
+            		</p>
+            		<p>
+            			<strong>Contras</strong> <br>
+            			<ul>
+            				<li>No es Full-Featured, es pensado que sea <em>Light</em></li>
+            				<li>No sigue en desarrollo</li>
+            				<li>Depende de JQuery para Manipulación del DOM (No funciona sin JQuery de hecho)</li>
+            			</ul>
+            		</p>
+            	</section>
+            	<section>
+            		<h3 class="vs-title">
+            			<!-- hacer que gire el VS-->
+            			<img src="imgs/knockout.png" class="img-on-title normal-pic" alt="Knockout">
+            		</h3>
+            		<p>Framework que provee MVVM Data Bindings usando observables y tracking de dependencias</p>
+            		<p>
+            			<strong>Pros</strong> <br>
+            			<em>Posiblemente</em> mas <strong>eficiente</strong>
+            		</p>
+            		<p>
+            			<strong>Contras</strong> <br>
+            			<ul>
+            				<li>Solo provee MVVM, no es mentado para aplicaciones</li>
+            				<li>Mucho Tedioso con sus <em>ko.observable() 's</em></li>
+            				<li>Tracking de depencias puede ser confuso</li>
+            			</ul>
+            		</p>
+            	</section>
+            	<section>
+            		<h3 class="vs-title">
+            			<!-- hacer que gire el VS-->
+            			<img src="imgs/emberjs.png" class="img-on-title normal-pic ember" alt="Ember">
+            		</h3>
+            		<p>Framework amplio y completo para aplicaciones web</p>
+            		<p>
+            			<strong>Pros</strong> <br>
+            			<em>Similar</em> a Angular en metas y objetivos
+            		</p>
+            		<p>
+            			<strong>Contras</strong> <br>
+            			<ul>
+            				<li>Curva de aprendizaje, argumentablemente, mas tediosa</li>
+            				<li>Usa observables, objetos especiales, getters y setters de cadenas... no es dinamico</li>
+            				<li>Tracking de depencias puede ser confuso</li>
+            				<li>Ideal para WebApps Grandes</li>
+            			</ul>
+            		</p>
+            	</section>
+
+
+            </section>
+            <section>
+            	<section>
+            		<h2>¿Por qué usar <img class="ang-logo xs normal-pic relative top-15" src="imgs/AngularJS-Shield-large.png" alt="Angular">?</h2> ( ͡° ͜ʖ ͡°)
+            	</section>
+            	<section>
+            		<ul>
+            			<li>Excelente para sitios web dinámicos y aplicaciones (sobre todo las basadas en CRUD)</li>
+            			<li>Impone una estrucutra que es buena para organizar adecuadamente el código</li>
+            			<li>una vez que se entiende y domina, se desarrolla extremadamente rápido</li>
+            			<li>Fácil de Testear - <em>Excelente para crear software que sea fácil de mantener</em></li>
+            			<li>Sin número de extensiones disponibles</li>
+            			<li>Framework #1 en su tipo (En nivel de uso y características)</li>
+            			<li>Tiene el respaldo de Google</li>
+            			<li>Amplia comunidad, documentacion, respuestas en StackOverflow, etc</li>
+            		</ul>
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h2>Lo no tan bueno... :(</h2>
+            	</section>
+            	<section>
+            		Rendimiento
+            	</section>
+            	<section>
+            		<p>La curva de aprendizaje no es un paseo por el parque que digamos (╥_╥)</p>
+					<img src="imgs/angular-curva.png" alt="Curva de Aprendizaje">
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h2>Angular 2?...</h2>
+            		<img src="imgs/travolta.gif" class="normal-pic" alt="Confusion">
+            	</section>
+            	<section>
+            		No es una nueva serie de versiones (2.x), sino un framework aparte
+            	</section>
+            	<section>
+            		Sigue en Beta... Desde el año pasado
+            	</section>
+            	<section>
+            		Ha habido Mucha Polémica :): (Hay Gente que apoya y gente que no)
+            	</section>
+            	<section>
+            		Muchos Cambios con respecto a 1.x, <em>o Angular 1</em>
+            	</section>
+            	<section>
+            		Mentado para ser ocupado en Typescript, sin embargo se puede utilizar Javascript e incluso Dart
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h2>Arquitectura</h2>
+            		<small>Las <del>tripas</del> partes de Angular</small>
+            	</section>
+            	<section>
+            		<h3>Módulos</h3>
+            		<pre>
+<code class="language-javascript">
+var app = angular.module("modulo", []);
+</code>
+            		</pre>
+            	</section>
+            	<section>
+            		<h3>Controladores</h3>
+            		<pre>
+<code class="language-javascript">
+var app = angular.module("modulo", []);
+	app.controller("controlador", function($scope){
+		//Controller Logic
+	})
+</code>
+            		</pre>
+            	</section>
+            	<section>
+            		<h3>Filtros</h3>
+            		<pre>
+<code class="language-javascript">
+var app = angular.module("modulo", []);
+	app.filter("filtro", function(){
+		return function(input){
+			return input + "1";
+		}
+	})
+</code>
+					</pre>
+            	</section>
+            	<section>
+            		<h3>Directivas</h3>
+            		<pre>
+<code class="language-javascript">
+var app = angular.module("modulo", []);
+	app.directive('directiva', function () {
+	    return {
+	        restrict: 'EA', //E = element, A = attribute, C = class, M = comment         
+	        scope: {
+	            //@ reads the attribute value, = provides two-way binding, & works with functions
+	            title: '@'         },
+	        template: '<div>{{ myVal }}</div>',
+	        templateUrl: 'mytemplate.html',
+	        controller: controllerFunction, //Embed a custom controller in the directive
+	        link: function ($scope, element, attrs) { } //DOM manipulation
+	    }
+	});
+    
+</code>
+					</pre>
+            	</section>
+            	<section>
+            		<h3>Fábricas y Servicios</h3>
+            		<a href="http://blog.thoughtram.io/angular/2015/07/07/service-vs-factory-once-and-for-all.html">Mas Aquí</a>
+            		<pre>
+<code class="language-javascript">
+var app = angular.module("modulo", []);
+	app.factory('testFactory', function(){
+	    return {
+	        sayHello: function(text){
+	            return "Factory says \"Hello " + text + "\"";
+	        },
+	        sayGoodbye: function(text){
+	            return "Factory says \"Goodbye " + text + "\"";
+	        }  
+	    }               
+	});
+
+	app.service('testService', function(){
+	    this.sayHello= function(text){
+	        return "Service says \"Hello " + text + "\"";
+	    };        
+	    this.sayGoodbye = function(text){
+	        return "Service says \"Goodbye " + text + "\"";
+	    };   
+	});
+</code>
+					</pre>
+            	</section>
+            </section>
+        </div>
+    </div>
+    <script src="bower_components/reveal.js/js/reveal.js"></script>
+    <script src="bower_components/prism/prism.js"></script>
+    <script>
+        Reveal.initialize();
+    </script>
+</body>
+</html>
