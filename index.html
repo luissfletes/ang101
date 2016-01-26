@@ -5,7 +5,7 @@
 	<title>Intro a AngularJS</title>
 	<link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
     <link rel="stylesheet" href="bower_components/reveal.js/css/theme/night.css">
-    <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
+	<link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
     <style>
     	img.ang-logo.med{
 	        max-width: 50%;
@@ -213,7 +213,7 @@
             			<strong>Contras</strong> <br>
             			<ul>
             				<li>Solo provee MVVM, no es mentado para aplicaciones</li>
-            				<li>Mucho Tedioso con sus <em>ko.observable() 's</em></li>
+            				<li>Muy Tedioso con sus <em>ko.observable() 's</em></li>
             				<li>Tracking de depencias puede ser confuso</li>
             			</ul>
             		</p>
@@ -247,14 +247,14 @@
             	</section>
             	<section>
             		<ul>
-            			<li>Excelente para sitios web dinámicos y aplicaciones (sobre todo las basadas en CRUD)</li>
-            			<li>Impone una estrucutra que es buena para organizar adecuadamente el código</li>
-            			<li>una vez que se entiende y domina, se desarrolla extremadamente rápido</li>
-            			<li>Fácil de Testear - <em>Excelente para crear software que sea fácil de mantener</em></li>
-            			<li>Sin número de extensiones disponibles</li>
-            			<li>Framework #1 en su tipo (En nivel de uso y características)</li>
-            			<li>Tiene el respaldo de Google</li>
-            			<li>Amplia comunidad, documentacion, respuestas en StackOverflow, etc</li>
+            			<li class="fragment">Excelente para sitios web dinámicos y aplicaciones (sobre todo las basadas en CRUD)</li>
+            			<li class="fragment">Impone una estrucutra que es buena para organizar adecuadamente el código</li>
+            			<li class="fragment">una vez que se entiende y domina, se desarrolla extremadamente rápido</li>
+            			<li class="fragment">Fácil de Testear - <em>Excelente para crear software que sea fácil de mantener</em></li>
+            			<li class="fragment">Sin número de extensiones disponibles</li>
+            			<li class="fragment">Framework #1 en su tipo (En nivel de uso y características)</li>
+            			<li class="fragment">Tiene el respaldo de Google</li>
+            			<li class="fragment">Amplia comunidad, documentacion, respuestas en StackOverflow, etc</li>
             		</ul>
             	</section>
             </section>
@@ -290,6 +290,9 @@
             	<section>
             		Mentado para ser ocupado en Typescript, sin embargo se puede utilizar Javascript e incluso Dart
             	</section>
+                <section>
+                    Tiene en la mira los web components
+                </section>
             </section>
             <section>
             	<section>
@@ -298,92 +301,286 @@
             	</section>
             	<section>
             		<h3>Módulos</h3>
-            		<pre>
-<code class="language-javascript">
+            		<pre><code>
 var app = angular.module("modulo", []);
-</code>
-            		</pre>
+					</code></pre>
             	</section>
             	<section>
             		<h3>Controladores</h3>
-            		<pre>
-<code class="language-javascript">
+            		<pre><code>
 var app = angular.module("modulo", []);
 	app.controller("controlador", function($scope){
 		//Controller Logic
 	})
-</code>
-            		</pre>
+					</code></pre>
             	</section>
             	<section>
             		<h3>Filtros</h3>
-            		<pre>
-<code class="language-javascript">
+            		<pre><code>
 var app = angular.module("modulo", []);
 	app.filter("filtro", function(){
 		return function(input){
 			return input + "1";
 		}
 	})
-</code>
-					</pre>
+					</code></pre>
             	</section>
             	<section>
             		<h3>Directivas</h3>
-            		<pre>
-<code class="language-javascript">
+            		<pre><code>
 var app = angular.module("modulo", []);
 	app.directive('directiva', function () {
-	    return {
-	        restrict: 'EA', //E = element, A = attribute, C = class, M = comment         
-	        scope: {
-	            //@ reads the attribute value, = provides two-way binding, & works with functions
-	            title: '@'         },
-	        template: '<div>{{ myVal }}</div>',
-	        templateUrl: 'mytemplate.html',
-	        controller: controllerFunction, //Embed a custom controller in the directive
-	        link: function ($scope, element, attrs) { } //DOM manipulation
-	    }
+		return {
+			restrict: 'EA', //E = element, A = attribute, C = class, M = comment         
+			scope: {
+				//@ reads the attribute value, = provides two-way binding, & works with functions
+				title: '@'         },
+			template: '<div>{{ myVal }}</div>',
+			templateUrl: 'mytemplate.html',
+			controller: controllerFunction, //Embed a custom controller in the directive
+			link: function ($scope, element, attrs) { } //DOM manipulation
+		}
 	});
-    
-</code>
-					</pre>
+					</code></pre>
             	</section>
             	<section>
             		<h3>Fábricas y Servicios</h3>
             		<a href="http://blog.thoughtram.io/angular/2015/07/07/service-vs-factory-once-and-for-all.html">Mas Aquí</a>
-            		<pre>
-<code class="language-javascript">
+            		<pre><code>
 var app = angular.module("modulo", []);
 	app.factory('testFactory', function(){
-	    return {
-	        sayHello: function(text){
-	            return "Factory says \"Hello " + text + "\"";
-	        },
-	        sayGoodbye: function(text){
-	            return "Factory says \"Goodbye " + text + "\"";
-	        }  
-	    }               
+		return {
+			sayHello: function(text){
+				return "Factory says \"Hello " + text + "\"";
+			},
+			sayGoodbye: function(text){
+				return "Factory says \"Goodbye " + text + "\"";
+			}  
+		}               
 	});
 
 	app.service('testService', function(){
-	    this.sayHello= function(text){
-	        return "Service says \"Hello " + text + "\"";
-	    };        
-	    this.sayGoodbye = function(text){
-	        return "Service says \"Goodbye " + text + "\"";
-	    };   
+		this.sayHello= function(text){
+			return "Service says \"Hello " + text + "\"";
+		};        
+		this.sayGoodbye = function(text){
+			return "Service says \"Goodbye " + text + "\"";
+		};   
 	});
-</code>
-					</pre>
+					</code></pre>
             	</section>
+            </section>
+            <section>
+                <section>
+                    <h2>El MVC</h2>
+                </section>
+                <section>
+                    <h3>
+                        Modelo
+                    </h3>
+                    <pre><code>
+                        $scope.alumno = {
+                            nombre: "Luis",
+                            apellido: "Fletes",
+                            edad: 22,
+                            fortalezas: ["Angular", "Node", "MongoDB"]
+                        };
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Vista</h3>
+                    <pre><code>
+                        <div>
+                            {{ alumno.nombre +" "+alumno.apellido }} <br>
+                            {{ alumno.edad }}
+                            <span ng-repeat="fortaleza in alumno.fortalezas">{{fortaleza}}</span>
+                        </div>
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>
+                        Controlador
+                    </h3>
+                    <pre><code>
+                        app.controller("control1", function($scope){
+                            
+                            $scope.sendAlumno = function(){
+                                // Logica aqui
+                            };
+                            
+                        });
+                    </code></pre>
+                </section>
+            </section>
+			<section>
+				<section>
+					<h2>¿Cómo lo obtengo?</h2>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Descarga del Sitio</li>
+						<li class="fragment">CDN</li>
+						<li class="fragment">Bower</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>
+						Orden	
+					</h2>
+				</section>
+				<section>
+					Módulos (Declaraciones, Configuraciones y bootstrap)
+				</section>
+				<section>
+					Fábricas y Servicios
+				</section>
+				<section>
+					Directivas y Filtros
+				</section>
+				<section>
+					Controladores
+				</section>
+			</section>
+			<section>
+				<section>
+                    <h2>
+                        Esqueleto de una App
+                    </h3>
+                </section>
+                <section>
+                    <img src="imgs/AppSkeleton.png" alt="Esqueleto">
+                </section>
+			</section>
+			<section>
+				<section>
+                    <h2>
+                        ¿Solamente para la web?
+                    </h2>
+                </section>
+                <section>
+                    No necesariamente, existe Ionic
+                </section>
+                <section>
+                    Ionic es un framework que permite desarrollar aplicaciones móviles usando tecnologías web (HTML, CSS, JS)
+                </section>
+                <section>
+                    Ionic usa Angular
+                </section>
+			</section>
+            <section>
+                <section>
+                    <h2>
+                        ¿y el back end?...
+                    </h2>
+                </section>
+                <section>
+                    <img src="imgs/everything.jpg" alt="Every Back End">
+                </section>
+                <section>
+                    Mas cómodo si se trabaja en JSON y/o en un JS end to end
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>¿Cúando usar?</h2>
+                </section>
+                <section>
+                    El desarrollo tiene que ser rápido
+                </section>
+                <section>
+                    se necesita mucha logica del lado cliente
+                </section>
+                <section>
+                    El Back End es solamente una api
+                </section>
+                <section>
+                    Hay WS REST
+                </section>
+                <section>
+                    Las UIs son complejas o necesitan serlo
+                </section>
+                <section>
+                    El objetivo es una app de cierta magnitud y no un sitio
+                </section>
+                <section>
+                    Hay que quitar <em>"peso"</em> al Back End
+                </section>
+                <section>
+                    Hay un <em>"Baas"</em>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Versiones</h2>
+                </section>
+                <section>
+                    Desde la version 0.10 hasta la 1.5.0-rc.1
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Soporte de Navegadores</h2>
+                </section>
+                <section>
+                    Version 1.2 soporta IE 8. Version 1.3 dejó el soporte
+                </section>
+            </section>
+            <section>
+				<section>
+                    <h2>
+                        Herramientas
+                    </h2>
+                </section>
+                <section>
+                    <h3>Sublime text</h3>
+                    <p>Se configura con paquetes de angular</p>
+                </section>
+                <section>
+                    <h3>VS Code</h3>
+                    <p>Viene listo con intellisense de angular</p>
+                </section>
+                <section>
+                    <h3>Web Storm</h3>
+                    <p>IDE con soporte para angular</p>
+                </section>
+                <section>
+                    <h3>Batarang y Ng-Inspector</h3>
+                    <p>Complementos para el explorador</p>
+                </section>
+                <section>
+                    <h3>Bower</h3>
+                    <p>Excelente manera de gestionar las dependencias</p>
+                </section>
+			</section>
+            <section>
+                <h2>
+                    ¿Preguntas?
+                </h2>
+            </section>
+            <section>
+                <h2>
+                    Muchas Gracias
+                </h2>
             </section>
         </div>
     </div>
     <script src="bower_components/reveal.js/js/reveal.js"></script>
-    <script src="bower_components/prism/prism.js"></script>
+	<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
     <script>
-        Reveal.initialize();
+        Reveal.initialize({
+			dependencies: [
+				// Syntax highlight for <code> elements
+				{ src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		
+				// Zoom in and out with Alt+click
+				{ src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+		
+				// // Speaker notes
+				// { src: './../plugin/notes/notes.js', async: true }
+			]
+		});
     </script>
 </body>
 </html>
