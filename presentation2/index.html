@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Módulos y Controladores</title>
+    <link rel="stylesheet" href="../bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../bower_components/reveal.js/css/theme/night.css">
+	<link rel="stylesheet" href="../bower_components/reveal.js/lib/css/zenburn.css">
 </head>
 <body>
-    
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>AngularJS</h1>
+                <h2>Módulos y Controladores</h2>
+            </section>
+        </div>
+    </div>
+    <script src="../bower_components/reveal.js/js/reveal.js"></script>
+	<script src="../bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script>
+        Reveal.initialize({
+			dependencies: [
+				// Syntax highlight for <code> elements
+				{ src: '../bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		
+				// Zoom in and out with Alt+click
+				{ src: '../bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+		
+				// // Speaker notes
+				// { src: './../plugin/notes/notes.js', async: true }
+			]
+		});
+    </script>s
 </body>
 </html>

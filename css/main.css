@@ -1,0 +1,55 @@
+img.ang-logo.med{
+    max-width: 50%;
+    max-height: 50%;
+}
+img.ang-logo.xs{
+    max-width: 7%;
+    max-height: 7%;
+}
+.relative{
+    position: relative;
+}
+.top-15{
+    top: 15px;
+}
+.reveal section img.normal-pic{
+    margin: 0px;
+    background: transparent;
+    border: none;
+    box-shadow: none;	
+}
+img.block-img{
+    display: block;
+}
+img.block-img.centered{
+    margin: 0 auto !important;
+}
+.eee-bk{
+    background: #eee !important;
+}
+.reveal .img-on-title{
+    max-width: 30%;
+    position: relative;
+}
+.reveal .img-on-title.ember{
+    max-width: 20%;
+}
+.reveal .img-on-title.vs-icon{
+    max-height: 10%;
+    max-width: 10%;
+    top: -100px;
+}
+.vs-title:before{
+    content: "";
+    display: block;
+    width: 90px;
+    height: 90px;
+    background: url(../imgs/vs-icon.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: -15px;
+    top: 10px;
+}
+.snoop{
+    max-width: 10% !important;
+}
