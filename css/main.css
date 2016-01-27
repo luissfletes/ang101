@@ -2,6 +2,11 @@ img.ang-logo.med{
     max-width: 50%;
     max-height: 50%;
 }
+img.ang-logo.sm{
+    max-width: 25%;
+    max-height: 25%;
+}
+
 img.ang-logo.xs{
     max-width: 7%;
     max-height: 7%;

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../bower_components/reveal.js/css/reveal.css">
     <link rel="stylesheet" href="../bower_components/reveal.js/css/theme/night.css">
 	<link rel="stylesheet" href="../bower_components/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
     <div class="reveal">
@@ -13,6 +14,262 @@
             <section>
                 <h1>AngularJS</h1>
                 <h2>Módulos y Controladores</h2>
+                <img class="ang-logo sm normal-pic block-img centered" src="../imgs/AngularJS-Shield-large.png" alt="AngularJS Logo">
+            	<small>por Luis Fletes</small>
+            </section>
+            <section>
+                <section>
+                    <h2>Pero primero...</h2>
+                </section>
+                <section>
+                    <h3>
+                        El <strong><em>Hola Mundo!</em></strong>
+                    </h3>
+                </section>
+                <section>
+                    <pre><code>
+                        &lt;html ng-app="modul"&gt;
+                            &lt;head&gt;
+                                &lt;title&gt;Hello Angular&lt;/title&gt;
+                            &lt;/head&gt;
+                            &lt;body ng-controller="control"&gt;
+                                &lt;h1&gt;{{message}}&lt;/h1&gt;
+                                &lt;script&gt;
+                                    angular.module("modul", [])
+                                        .controller("control", ["$scope", function($scope){
+                                            $scope.message = "Hola Mundo!";
+                                        }])
+                                &lt;/script&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code></pre>
+                    <a href="helloworld.html" target="blank">Ir a Ejemplo</a>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>
+                        Modulos
+                    </h2>
+                </section>
+                <section>
+                    <p>Podemos verlos como un contenedor para diferentes partes de la aplicacion.</p> 
+                    <small>(Controladores - Servicios - Filtros - Directivas)</small>
+                </section>
+                <section>
+                    <p>Son la Manera de angular para empaquetar codigo relevante bajo un mismo nombre.</p>
+                    <p class="fragment">Para los <em>Javeros</em>, es una analogia simple pensar en modulos como en paquetes</p>
+                </section>
+                <section>
+                    <p>Un Módulo de Angular se compone de dos cosas:</p>
+                    <ul>
+                        <li class="fragment">
+                            Definicion de Controladores, servicios, factories y directivas. Todo esto es accesible a traves del modulo.
+                        </li>
+                        <li class="fragment">
+                            Dependencias (Opcionales) de otros modulos.
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>
+                            <pre><code>
+var app = angular.module("modulo", []);
+    app.controller("controlador", function($scope){
+        //Controller Logic
+    })
+    app.filter("filtro", function(){
+        return function(input){
+            return input + "1";
+        }
+    })
+    //etc...
+                            </code></pre>
+                        </li>
+                        <li>
+                            <pre><code>
+var app = angular.module("modulo", []);
+                            </code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Para Definir uno, se debe brindar un nombre y un arreglo de nombres (cadenas) de modulos</p>
+                    <p class="fragment"><strong>OJO-></strong> No brindar arreglo retorna instancia de modulo existente.</p>
+                </section>
+                <section>
+                    <p>Ng-App debe ser llenado por un modulo exclusivamente</p>
+                    <pre><code>
+                        &lt;html ng-app="modulo"&gt;
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>¿Por qué los modulos?</h2>
+                </section>
+                <section>
+                    <p>La mayoria de las aplicaciones tienen un metodo <em>Main</em> que arranca toda la aplicacion y sus componentes.</p>
+                    <p class="fragment">En angular no hay main. En ves de eso, los modulos especifican como una app debe ser arrancada</p>
+                    <p class="fragment">Hay Ventajas de este metodo:</p>
+                    <ul>
+                        <li class="fragment">El proceso declarativo es facil de comprender</li>
+                        <li class="fragment">Empaquetacion de codigo en modulos reusables</li>
+                        <li class="fragment">Los modulos pueden ser cargados en cualquier orden (hasta en paralelo)</li>
+                        <li class="fragment">Las pruebas unitarias solo tienen que cargar los modulos relevantes. lo que las deja rapidas</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Recomendacion de Modulos</h2>
+                </section>
+                <section>
+                    <p>Para Apps Grandes, La documentacion oficial de angular recomienda hacer un modulo por cada feature</p>
+                    <p>A la vez se recomienda un modulo para directivas, controladores, fabricas, etc.</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Controladores</h2>
+                </section>
+                <section>
+                    <p>Los controladores son el <em>"Machete"</em> de Angular</p>
+                    <p>Son las funciones que ejecutan o disparan la mayor parte del trabajo en la UI</p>
+                </section>
+                <section>
+                    <p>Sus responsabilidades comunes abarcan: </p>
+                    <ul>
+                        <li class="fragment">Traer la data del servidor a la UI</li>
+                        <li class="fragment">Decidir que partes de la data mostrar al usuario</li>
+                        <li class="fragment">Logica de presentacion. como mostrar ciertos elementos, que partes de la UI mostrar, etc.</li>
+                        <li class="fragment">Interacciones del Usuario. Asi como "lo que debe pasar" cuando el usuario da click</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Un Controlador esta siempre relacionado a una vista</p>
+                    <p>Nunca tendremos un controlador que no es usado en la UI (El caso seria mas de un servicio o fabrica)</p>
+                    <p>Actua de <em>Gateway</em> entre nuestro modelo, que es la data que provee la app, y la vista, que es lo que el usuario mira e interactua.</p>
+                </section>
+                <section>
+                    <p>Para Definir uno, se debe brindar un nombre y una funcion controlador (Basicamente)</p>
+                    <pre><code>
+            myApp.controller('Control1', function($scope) {
+                $scope.greeting = 'Hola!';
+            });
+            myApp.controller('Control2', ['$scope', function($scope) {
+                $scope.greeting = 'Hola!';
+            }]);
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Ng-Controller debe ser llenado por un controlador exclusivamente</p>
+                    <pre><code>
+                        &lt;div ng-controller="Control1"&gt;
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>DI <em>ó</em> Inyeccion de Dependencias</h2>
+                </section>
+                <section>
+                    <p><em>DI</em> es un patron de diseño de software que maneja el cómo los componentes lidian con sus dependencias</p>
+                    <p>El Sistema Inyector de Angular esta en cargo de crear componentes, resolver sus dependencias, y proveer a estos a otros componentes segun lo solicitado</p>
+                </section>
+                <section>
+                    es usado en muchos lados...
+                </section>
+                <section>
+                    <h3>Fabricas, servicios, directivas y filtros</h3>
+                    <pre><code>
+                angular.module('myModule', [])
+                .factory('serviceId', ['depService', function(depService) {
+                    // ...
+                }])
+                .directive('directiveName', ['depService', function(depService) {
+                    // ...
+                }])
+                .filter('filterName', ['depService', function(depService) {
+                    // ...
+                }]);
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Modulos</h3>
+                    <pre><code>
+                angular.module('myModule', [])
+                .config(['depProvider', function(depProvider) {
+                    // ...
+                }])
+                .run(['depService', function(depService) {
+                    // ...
+                }]);
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Controladores</h3>
+                    <pre><code>
+                someModule.controller('MyController', ['$scope', 'dep1', 'dep2', function($scope, dep1, dep2) {
+                    ...
+                    $scope.aMethod = function() {
+                        ...
+                    }
+                    ...
+                }]);
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Anotacion de Dependencias</h2>
+                </section>
+                <section>
+                    <p>Es la manera o estilo de inyectar las dependencias</p>
+                </section>
+                <section>
+                    <p>Existen 3 maneras:</p>
+                    <ul>
+                        <li class="fragment">Inline Array Annotation</li>
+                        <li class="fragment">$inject property Annotation</li>
+                        <li class="fragment">Implicita</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Implícita</h3>
+                    <pre><code>
+                    someModule.controller('MyController', function($scope, greeter) {
+                        // ...
+                    });
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Inline Array Annotation</h3>
+                    <pre><code>
+                    someModule.controller('MyController', ['$scope', 'greeter', function($scope, greeter) {
+                        // ...
+                    }]);
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Data Binding</h2>
+                </section>
+                <section>
+                    <p>Data-Binding en apps de angular es la sincronizacion automatica de la data entre el modelo y la vista</p>
+                </section>
+                <section>
+                    <p>Angular provee 2 tipos:</p>
+                    <ul>
+                        <li class="fragment">One-Way Data-Binding</li>
+                        <li class="fragment">Two-Way Data-Binding</li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="../imgs/one-waydb.png" alt="One Way Data-Binding" class="sm normal-pic"><img src="../imgs/two-waydb.png" alt="Two Way Data-Binding" class="sm normal-pic">
+                </section>
             </section>
         </div>
     </div>

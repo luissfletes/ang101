@@ -1,0 +1,15 @@
+<html ng-app="modul">
+    <head>
+        <title>Hello Angular</title>
+    </head>
+    <body ng-controller="control">
+        <h1>{{message}}</h1>
+        <script src="../bower_components/angular/angular.js"></script>
+        <script>
+            angular.module("modul", [])
+                .controller("control", ["$scope", function($scope){
+                    $scope.message = "Hola Mundo!";
+                }])
+        </script>
+    </body>
+</html>
