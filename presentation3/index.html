@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtros, Directivas y Fábricas</title>
+    <link rel="stylesheet" href="../bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../bower_components/reveal.js/css/theme/night.css">
+	<link rel="stylesheet" href="../bower_components/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>AngularJS</h1>
+                <h2>Filtros, Directivas y Fábricas</h2>
+                <img class="ang-logo sm normal-pic block-img centered" src="../imgs/AngularJS-Shield-large.png" alt="AngularJS Logo">
+            	<small>por Luis Fletes</small>
+            </section>
+            <section>
+                <section>
+                    <h2>Filtros</h2>
+                </section>
+                <section>
+                    <p class="fragment">Un filtro formatea el valor de una expresion para mostrala al usuario</p>
+                    <p class="fragment">Pueden ser usado en las plantillas (vistas), controladores o servicios. Es Facil definir el propio.</p>
+                </section>
+                <section>
+                    <h3>.. en las vistas</h3>
+                </section>
+                <section>
+                    <p>Pueden ser aplicados a expresiones en las vistas usando la siguiente sintaxis:</p>
+                    <pre class="fragment"><code>
+                        {{ expression | filter }}            
+                    </code></pre>
+                    <p class="fragment">Ej: <code>{{ 12 | currency }}</code> formatea el numero 12 como moneda usando el filtro <em>"currency"</em>. El resultado es $12.00.</p>
+                </section>
+                <section>
+                    <p>Fitros pueden ser aplicados al resultado de otro filtro. Se conoce como <em>"Encadenamiento"</em> y usa la siguiente sintaxis:</p>
+                    <pre class="fragment"><code>
+                        {{ expression | filter1 | filter2 | ... }}                        
+                    </code></pre>
+                </section>
+                <section>
+                    <p>Los Filtros pueden tener mas argumentos. La sintaxis para esto es: </p>
+                    <pre class="fragment"><code>
+                        {{ expression | filter:argument1:argument2:... }}    
+                    </code></pre>
+                    <p class="fragment">Ej: <code>{{ 1234 | number:2 }}</code> formate el numero 1234 con 2 decimales usando el filtro <em>"number"</em>. El Resultado es 1,234.00</p>    
+                </section>
+                <section>
+                    <h3>.. en controladores, servicios y directivas</h3>
+                </section>
+                <section>
+                    <pre><code>
+                        angular.module('FilterInControllerModule', []).
+                        controller('FilterController', ['filterFilter', function(filterFilter) {
+                            this.array = [
+                                {name: 'Tobias'},
+                                {name: 'Jeff'},
+                                {name: 'Brian'},
+                                {name: 'Igor'},
+                                {name: 'James'},
+                                {name: 'Brad'}
+                            ];
+                            this.filteredArray = filterFilter(this.array, 'a');
+                        }]);
+                    </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Directivas</h2>
+                </section>
+                <section>
+                    <p>
+                        Siguiendo la propia documentación de AngularJS, las directivas son marcas en los elementos del árbol DOM, 
+                        en los nodos del HTML, que indican al compilador de Angular que debe asignar cierto comportamiento a dichos 
+                        elementos o transformarlos según corresponda.
+                    </p>
+                    <p class="fragment">
+                        Podríamos decir que las directivas nos permiten añadir comportamiento dinámico al árbol DOM haciendo uso de las nativas del propio AngularJS o extender la funcionalidad hasta donde necesitemos creando las nuestras propias. De hecho, la recomendación, es que sea en las directivas en el único sitio donde manipulemos el árbol DOM, para que entre dentro del ciclo de vida de compilación, binding y renderización del HTML.
+                    </p>
+                    <p class="fragment">
+                        Las directivas son la técnica que nos va a permitir crear nuestros propios componentes visuales encapsulando las posibles complejidades en la implementación, normalizando y parametrizándolos según nuestras necesidades.
+                    </p>
+                </section>
+                <section>
+                    <ul>
+                        <li class="fragment">ng-app</li>
+                        <li class="fragment">ng-controller</li>
+                        <li class="fragment">ng-model</li>
+                        <li class="fragment">ng-if</li>
+                        <li class="fragment">ng-show</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Fábricas.. y Servicios</h2>
+                </section>
+            </section>
+        </div>
+    </div>
+    <script src="../bower_components/reveal.js/js/reveal.js"></script>
+	<script src="../bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script>
+        Reveal.initialize({
+			dependencies: [
+				// Syntax highlight for <code> elements
+				{ src: '../bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		
+				// Zoom in and out with Alt+click
+				{ src: '../bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+		
+				// // Speaker notes
+				// { src: './../plugin/notes/notes.js', async: true }
+			]
+		});
+    </script>
+</body>
+</html>
