@@ -58,3 +58,6 @@ img.block-img.centered{
 .snoop{
     max-width: 10% !important;
 }
+.text-center{
+    text-align: center !important;
+}

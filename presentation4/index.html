@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ruteo y Manejo de Vistas</title>
+    <link rel="stylesheet" href="../bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../bower_components/reveal.js/css/theme/night.css">
+	<link rel="stylesheet" href="../bower_components/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>AngularJS</h1>
+                <h2>Ruteo y Manejo de Vistas</h2>
+                <img class="ang-logo sm normal-pic block-img centered" src="../imgs/AngularJS-Shield-large.png" alt="AngularJS Logo">
+            	<small>por Luis Fletes</small>
+            </section>
+            <section>
+                <section>
+                    <p>Las SPAs estan ganando popularidad. Los <em>Sitios</em> que adoptan el comportamiento de una single page app son capaces de proveer el <strong><em>Feeling</em></strong> de una app movil</p>
+                </section>
+                <section>
+                    <p>Angular ayuda a crear aplicaciones asi de manera sencilla</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>ngRoute</h3>
+                </section>
+                <section>
+                    <p>El Modulo ngRoute provee servicios y directivas de ruteo para apps de angular</p>
+                </section>
+                <section>
+                    <p>Este es desarrollado y mantenido por Google</p>
+                    <p>Hay una alternativa (no de google) llamada ui-router</p>
+                </section>
+                <section>
+                    <h3>Componentes</h3>
+                    <!--<h4>Directivas</h4>-->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    Directivas
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ngView
+                                </td>
+                                <td>
+                                    directiva que complementa el servicio $route incluyendo 
+                                    la plantilla renderizada de la actual ruta en la layout principal.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    Providers
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    $routeProvider
+                                </td>
+                                <td>
+                                    Usado para la configuracion de Rutas.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    Servicios
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    $route
+                                </td>
+                                <td>
+                                    Es usado para <em>linkear</em> urls a controladores y vistas
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    $routeParams
+                                </td>
+                                <td>
+                                    Este servicio permite obtener el actual conjunto de parametros de ruta.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+            <section>
+                ¿Preguntas?
+            </section>
+            <section>
+                Muchas Gracias
+            </section>
+        </div>
+    </div>
+    <script src="../bower_components/reveal.js/js/reveal.js"></script>
+	<script src="../bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script>
+        Reveal.initialize({
+			dependencies: [
+				// Syntax highlight for <code> elements
+				{ src: '../bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		
+				// Zoom in and out with Alt+click
+				{ src: '../bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+		
+				// // Speaker notes
+				// { src: './../plugin/notes/notes.js', async: true }
+			]
+		});
+    </script>
+</body>
+</html>
