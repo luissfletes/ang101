@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formularios y $http</title>
+	<link rel="stylesheet" href="../bower_components/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../bower_components/reveal.js/css/theme/night.css">
+	<link rel="stylesheet" href="../bower_components/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>AngularJS</h1>
+                <h2>Formularios y $http</h2>
+                <img class="ang-logo sm normal-pic block-img centered" src="../imgs/AngularJS-Shield-large.png" alt="AngularJS Logo">
+            	<small>por Luis Fletes</small>
+			</section>
+			<section>
+				<section>
+					<h3>Formularios</h3>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">ngModel</li>
+						<li class="fragment">ngSubmit</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Validaciones</h4>
+				</section>
+				<section>
+					<p class="fragment"><strong>OJO</strong> -> es importante poner "name" al formulario</p>
+					<table class="fragment">
+						<thead>
+							<tr>
+								<td>Estado</td>
+								<td>Descripcion</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>$invalid</td>
+								<td>Angular pone este estado cuando cualquiera de los validadores  en el form es invalido</td>
+							</tr>
+							<tr>
+								<td>$valid</td>
+								<td>Cuando todos los validadores evaluan correctamente</td>
+							</tr>
+							<tr>
+								<td>$pristine</td>
+								<td>Cuando el formulario no ha sido utilizado</td>
+							</tr>
+							<tr>
+								<td>$dirty</td>
+								<td>Opuesto a Pristine. Han habido cambios en el form</td>
+							</tr>
+							<tr>
+								<td>$error</td>
+								<td>Este elemento guarda cada uno de los errores de los campos</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<p><em>Built-in</em> Angular Validators</p>
+					<ul>
+						<li class="fragment">required</li>
+						<li class="fragment">ng-required</li>
+						<li class="fragment">ng-minlenght</li>
+						<li class="fragment">ng-maxlength</li>
+						<li class="fragment">ng-pattern</li>
+						<li class="fragment">type="email"</li>
+						<li class="fragment">type="number"</li>
+						<li class="fragment">type="date"</li>
+						<li class="fragment">type="url"</li>
+					</ul>
+				</section>
+				<section>
+					<p>Clases CSS</p>
+					<img src="../imgs/forms1.png" class="normal-pic" alt="Tabla1">
+					<img src="../imgs/forms2.png" class="normal-pic" alt="Tabla1">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Servicio $http</h3>
+				</section>
+				<section>
+					<p>$http es uno de los servicios <em>core</em> de angular. Facilita la comunicacion con el servidor via el XMLHttpRequest del Explorador o por via JSONP</p>
+				</section>
+				<section>
+					<h4>Uso Comun</h4>
+					<pre><code>
+$http({
+  method: 'GET',
+  url: '/someUrl'
+}).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+	}, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+});
+					</code></pre>
+					<ul></ul>
+				</section>
+				<section>
+					<h4>Configuracion de Request</h4>
+					<ul>
+						<li>method</li>
+						<li>url</li>
+						<li>params</li>
+						<li>data</li>
+						<li>headers</li>
+						<li>xsrfHeaderName</li>
+						<li>xsrfCookieName</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Respuesta</h4>
+					<ul>
+						<li>data</li>
+						<li>status</li>
+						<li>headers</li>
+						<li>config</li>
+					</ul>
+				</section>
+				<section>
+					<h4><em>Shortcuts</em></h4>
+					<ul>
+						<li>$http.get</li>
+						<li>$http.head</li>
+						<li>$http.post</li>
+						<li>$http.put</li>
+						<li>$http.delete</li>
+						<li>$http.jsonp</li>
+						<li>$http.patch</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Configuracion Global</h4>
+					<ul>
+						<li>
+							$httpProvider.defaults.headers.common (toda request):
+							<ul>
+								<li>Accept: application/json, text/plain</li>
+							</ul>
+						</li>
+						<li>
+							$httpProvider.defaults.headers.post:
+							<ul>
+								<li>Content-Type: application/json</li>
+							</ul>
+						</li>
+						<li>
+							$httpProvider.defaults.headers.put:
+							<ul>
+								<li>Content-Type: application/json</li>
+							</ul>
+						</li>
+					</ul>
+					<a href="http://jsfiddle.net/X2p7r/336/">Mas Aqui</a>
+				</section>
+			</section>
+			<section>
+				<section>
+					ngResource
+				</section>
+				<section>
+					<h3>¿$resource es alternativa a $http?</h3>
+				</section>
+			</section>
+			<section>
+                <h2>¿Preguntas?</h2>
+            </section>
+            <section>
+                <h2>Muchas Gracias</h2>
+            </section>
+		</div>
+	</div>
+	<script src="../bower_components/reveal.js/js/reveal.js"></script>
+	<script src="../bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script>
+        Reveal.initialize({
+			dependencies: [
+				// Syntax highlight for <code> elements
+				{ src: '../bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		
+				// Zoom in and out with Alt+click
+				{ src: '../bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+		
+				// // Speaker notes
+				// { src: './../plugin/notes/notes.js', async: true }
+			]
+		});
+    </script>
+</body>
+</html>
